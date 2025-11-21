@@ -84,6 +84,6 @@ public class Reservation {
 
     public boolean isOverlapped(LocalDate otherCheckIn, LocalDate otherCheckOut) {
         // [checkInDate, checkOutDate) 와 [otherCheckIn, otherCheckOut) 이 겹치는지
-        return !checkOutDate.isBefore(otherCheckIn) && !checkInDate.isAfter(otherCheckOut);
+        return checkInDate.isBefore(otherCheckOut) && otherCheckIn.isBefore(checkOutDate);
     }
 }
