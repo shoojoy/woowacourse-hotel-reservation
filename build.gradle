@@ -11,8 +11,8 @@ repositories {
 }
 
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.10.0')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation platform("org.junit:junit-bom:5.10.0")
+    testImplementation "org.junit.jupiter:junit-jupiter"
 }
 
 test {
@@ -20,5 +20,14 @@ test {
 }
 
 application {
-    mainClass = 'hotel.App'
+    mainClass = "hotel.App"
+}
+
+run {
+    standardInput = System.in
+    jvmArgs "-Dfile.encoding=UTF-8"
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = "UTF-8"
 }
