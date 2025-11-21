@@ -2,9 +2,6 @@ package hotel.domain;
 
 import java.time.LocalDate;
 
-/**
- * 객실 예약 한 건을 표현하는 도메인 모델입니다.
- */
 public class Reservation {
 
     private final Long reservationId; // 예약 고유 번호
@@ -12,8 +9,8 @@ public class Reservation {
     private final Long roomId; // 어느 객실의 예약인지
 
     // 예약자 정보
-    private final String guestName; // 예약자 이름
-    private final String phoneNumber; // 연락처
+    private final String guestName;
+    private final String phoneNumber;
 
     private final LocalDate checkInDate;
     private final LocalDate checkOutDate;
@@ -83,7 +80,6 @@ public class Reservation {
     }
 
     public boolean isOverlapped(LocalDate otherCheckIn, LocalDate otherCheckOut) {
-        // [checkInDate, checkOutDate) 와 [otherCheckIn, otherCheckOut) 이 겹치는지
         return checkInDate.isBefore(otherCheckOut) && otherCheckIn.isBefore(checkOutDate);
     }
 }
